@@ -59,7 +59,7 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
              e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
              a.dispatchEvent(e);
          }
-      $timeout(reset, 5000);
+      $timeout(reset, 2000);
   }
 
   function reset(){
