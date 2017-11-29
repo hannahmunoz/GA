@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
   <head>
+    <style>
+      pre, code{white-space:pre-line;}
+    </style>
     <meta charset="utf-8">
     <title>GA Crochet Pattern Creator</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -8,8 +11,16 @@
     <script src="app.js"></script>
   </head>
   <body ng-controller = "ServiceController">
-    <p>Please choose the top 5 pattern choices in order from most to least favorite.</p>
-    <p> {{patterns[0]}}, {{patterns[1]}}</p>
-
+    <h1>Please choose the top 5 pattern choices.</h1>
+    <div class="container">
+      <div class="row" ng-repeat="item in patterns track by $index" ng-if= "$index % 2 == 0">
+          <div class="col-sm-6" style="background-color:blue;" ng-repeat = "i in [$index, $index + 1]" ng-if="patterns[i] != null">
+            <pre> {{item.data}}</pre>
+            <input type="checkbox" name= "$index" value= "$index" ng-change="checkChanged(i)" ng-model="patterns[i].selected" ng-disabled= "checked==limit">
+          </div>
+      </div>
+    </div>
+    <button ng-click="next()">Next</button>
+    <button ng-click="finished()">Finished</button>
   </body>
 </html>
