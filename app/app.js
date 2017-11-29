@@ -4,7 +4,7 @@ var FilePath = "/Patterns";
 var patternLimit = 12;
 
 
-phonecatApp.controller('ServiceController', function ServiceController($scope, $http, $q) {
+phonecatApp.controller('ServiceController', function ServiceController($scope, $http, $q, $timeout) {
   $scope.patterns = [];
   $scope.limit = 5;
   $scope.checked = 0;
@@ -19,18 +19,16 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
         })
       }
     }).then (function success(response){
-      console.log ($scope.patterns);
+      console.log ("Pattern Read in: ",$scope.patterns);
     })
 
   }
 
   $scope.checkChanged = function(i){
-    console.log (i);
     if($scope.patterns[i].selected) 
         $scope.checked++;
     else 
       $scope.checked--;
-    console.log ($scope.checked);
   }
 
   $scope.next = function(){
@@ -44,30 +42,30 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
         }
     }
 
-    console.log (data);
+    console.log ("Selection Output:", data);
+    var blob = new Blob([data], {type: 'text/plain'});
+        // FOR IE:
+         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+             window.navigator.msSaveOrOpenBlob(blob, "final.txt");
+         }
+         else{
+             e = document.createEvent('MouseEvents'),
+             a  = document.createElement('a')
 
-  //  $http.post (FilePath+ "/final.txt", data);
+             a.download = "final.txt";
+             a.target = "_self" 
+             a.href = window.URL.createObjectURL(blob);
+             a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+             e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+             a.dispatchEvent(e);
+         }
+      $timeout(reset, 5000);
+  }
 
-  var blob = new Blob([data], {type: 'text/plain'}),
-           e    = document.createEvent('MouseEvents'),
-           a    = document.createElement('a')
-// FOR IE:
-
- if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-     window.navigator.msSaveOrOpenBlob(blob, FilePath+ "/final.txt");
- }
- else{
-     var e = document.createEvent('MouseEvents'),
-         a = document.createElement('a');
-
-     a.download = FilePath+ "/final.txt";
-     a.href = window.URL.createObjectURL(blob);
-     a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
-     e.initEvent('click', true, false, window,
-         0, 0, 0, 0, 0, false, false, false, false, 0, null);
-     a.dispatchEvent(e);
- }
-
+  function reset(){
+    $scope.patterns = [];
+    $scope.checked = 0;
+    init();
   }
 
   $scope.finished = function(){

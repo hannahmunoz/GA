@@ -13,13 +13,13 @@
   <body ng-controller = "ServiceController">
   <div style="text-align:center;"> 
     <h1>Please choose the top 5 pattern choices.</h1>
-    <div style="text-align:center;">
+    <div style="max-width:780px;margin:auto;">
     <div class="container" style="margin:auto;">
       <div class="row" 
            ng-repeat="item in patterns" 
            ng-if = "$index % 4 == 0">
           <div class="col-sm-2" 
-               style="background-color:blue;">
+               style="background-color:blue;letter-spacing: 2px;">
             <pre> {{patterns[$index].data}}</pre>
             <input type="checkbox" 
                    name= "$index" 
@@ -29,8 +29,8 @@
                    ng-disabled= "checked==limit && !patterns[$index].selected">
           </div>
           <div class="col-sm-2" 
-               style="background-color:blue;">
-            <pre> {{patterns[$index+1].data}}</pre>
+               style="background-color:blue;letter-spacing: 2px;">
+            <pre> {{patterns[$index+1].data }}</pre>
             <input type="checkbox" 
                    name= "$index+1" 
                    value= "$index+1" 
@@ -39,7 +39,7 @@
                    ng-disabled= "checked==limit && !patterns[$index+1].selected">
           </div>
           <div class="col-sm-2" 
-               style="background-color:blue;">
+               style="background-color:blue;letter-spacing: 2px;">
             <pre> {{patterns[$index+2].data}}</pre>
             <input type="checkbox" 
                    name= "$index+2" 
@@ -49,7 +49,7 @@
                    ng-disabled= "checked==limit && !patterns[$index+2].selected">
           </div>
          <div class="col-sm-2" 
-              style="background-color:blue;">
+              style="background-color:blue;letter-spacing: 2px;">
             <pre> {{patterns[$index+3].data}}</pre>
             <input type="checkbox" 
                    name= "$index+3" 
