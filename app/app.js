@@ -20,14 +20,17 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
       }
     }).then (function success(response){
       console.log ($scope.patterns);
-      console.log ($scope.patterns[0]);
     })
 
   }
 
   $scope.checkChanged = function(i){
-    if($scope.patterns[i].selected) $scope.checked++;
-    else $scope.checked--;
+    console.log (i);
+    if($scope.patterns[i].selected) 
+        $scope.checked++;
+    else 
+      $scope.checked--;
+    console.log ($scope.checked);
   }
 
   $scope.next = function(){
