@@ -1,12 +1,12 @@
 var phonecatApp = angular.module('phonecatApp', []);
 
 var FilePath = "/Patterns";
-var patternLimit = 3;
+var patternLimit = 12;
 
 
 phonecatApp.controller('ServiceController', function ServiceController($scope, $http, $q) {
   $scope.patterns = [];
-  $scope.limit = 2;
+  $scope.limit = 5;
   $scope.checked = 0;
 
   var init = function(){
