@@ -20,7 +20,7 @@
            ng-if = "$index % 4 == 0">
           <div class="col-sm-2" 
                style="background-color:blue;letter-spacing: 2px;">
-            <pre> {{patterns[$index].data}}</pre>
+              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index" 
                    value= "$index" 
@@ -30,7 +30,7 @@
           </div>
           <div class="col-sm-2" 
                style="background-color:blue;letter-spacing: 2px;">
-            <pre> {{patterns[$index+1].data }}</pre>
+              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+1" 
                    value= "$index+1" 
@@ -40,7 +40,7 @@
           </div>
           <div class="col-sm-2" 
                style="background-color:blue;letter-spacing: 2px;">
-            <pre> {{patterns[$index+2].data}}</pre>
+              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+2" 
                    value= "$index+2" 
@@ -50,7 +50,7 @@
           </div>
          <div class="col-sm-2" 
               style="background-color:blue;letter-spacing: 2px;">
-            <pre> {{patterns[$index+3].data}}</pre>
+              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+3" 
                    value= "$index+3" 

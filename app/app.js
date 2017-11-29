@@ -46,13 +46,13 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
     var blob = new Blob([data], {type: 'text/plain'});
         // FOR IE:
          if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-             window.navigator.msSaveOrOpenBlob(blob, "final.txt");
+             window.navigator.msSaveOrOpenBlob(blob, "result.txt");
          }
          else{
              e = document.createEvent('MouseEvents'),
              a  = document.createElement('a')
 
-             a.download = "final.txt";
+             a.download = "result.txt";
              a.target = "_self" 
              a.href = window.URL.createObjectURL(blob);
              a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
@@ -66,6 +66,15 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
     $scope.patterns = [];
     $scope.checked = 0;
     init();
+  }
+
+  $scope.getStyle = function (char){
+    if (char == 0){
+        return {'color':'grey'};
+    }
+    else{
+      return {'color':'blue'};
+    }
   }
 
   $scope.finished = function(){
