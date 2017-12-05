@@ -18,7 +18,7 @@
       <div class="row" 
            ng-repeat="item in patterns" 
            ng-if = "$index % 4 == 0">
-          <div class="col-sm-3" 
+          <div class="col-sm-5" 
                style="background-color:black;letter-spacing: 4px;">
               <pre> <span ng-repeat = "char in patterns[$index].data track by $index" 
                           ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
@@ -29,7 +29,7 @@
                    ng-model="patterns[$index].selected" 
                    ng-disabled= "checked==limit && !patterns[$index].selected">
           </div>
-          <div class="col-sm-3" 
+          <div class="col-sm-5" 
                style="background-color:black;letter-spacing: 4px;">
               <pre> <span ng-repeat = "char in patterns[$index+1].data track by $index" 
                           ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
@@ -40,7 +40,7 @@
                    ng-model="patterns[$index+1].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+1].selected">
           </div>
-          <div class="col-sm-3" 
+          <div class="col-sm-5" 
                style="background-color:black;letter-spacing: 4px;">
               <pre>  <span ng-repeat = "char in patterns[$index+2].data track by $index" 
                            ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre> 
@@ -51,7 +51,7 @@
                    ng-model="patterns[$index+2].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+2].selected">
           </div>
-         <div class="col-sm-3" 
+         <div class="col-sm-5" 
               style="background-color:black;letter-spacing: 4px;">
               <pre><span ng-repeat = "char in patterns[$index+3].data track by $index" 
                          ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
@@ -87,8 +87,7 @@
 </div>
     </div>
     <div style="text-align:center;">
-        <button ng-click="next()" 
-                ng-disabled = "checked < limit" >
+        <button ng-click="next()">
                 Next
        </button>
         <button ng-click="finished()">

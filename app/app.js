@@ -75,6 +75,15 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
         else if (char == 1){
           $scope.color = "/CSS/yellow.png"
         }
+        else if (char == 2){
+          $scope.color = "/CSS/red.png"
+        }
+        else if (char == 3){
+          $scope.color = "/CSS/green.png"
+        }
+        else if (char == 4){
+          $scope.color = "/CSS/white.png"
+        }
         else{
           $scope.color = char;
         }
@@ -86,6 +95,9 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
         }
         else if (char == 1){
           $scope.color = "/CSS/yellow.png"
+        }
+        else if (char == 2){
+          $scope.color = "/CSS/white.png"
         }
         else{
           $scope.color = char;
@@ -99,6 +111,9 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
           else if (char == 1){
             $scope.color = "/CSS/white.png"
           }
+        else if (char == 2){
+          $scope.color = "/CSS/black.png"
+        }
           else{
             $scope.color = char;
           }
