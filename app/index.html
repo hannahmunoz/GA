@@ -32,7 +32,7 @@
           <div class="col-sm-3" 
                style="background-color:black;letter-spacing: 4px;">
               <pre> <span ng-repeat = "char in patterns[$index+1].data track by $index" 
-                          ng-style="getStyle(char)" ><img ng-src="{{color}}"></span> <span ng-if = "char == '\n'">{{char}}</span></pre>
+                          ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+1" 
                    value= "$index+1" 
