@@ -13,14 +13,15 @@
   <body ng-controller = "ServiceController">
   <div style="text-align:center;"> 
     <h1>Please choose the top 5 pattern choices.</h1>
-    <div style="max-width:780px;margin:auto;">
+    <div style="max-width:1100px;margin:auto;">
     <div class="container" style="margin:auto;">
       <div class="row" 
            ng-repeat="item in patterns" 
            ng-if = "$index % 4 == 0">
-          <div class="col-sm-2" 
-               style="background-color:blue;letter-spacing: 2px;">
-              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
+          <div class="col-sm-3" 
+               style="background-color:black;letter-spacing: 4px;">
+              <pre> <span ng-repeat = "char in patterns[$index].data track by $index" 
+                          ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index" 
                    value= "$index" 
@@ -28,9 +29,10 @@
                    ng-model="patterns[$index].selected" 
                    ng-disabled= "checked==limit && !patterns[$index].selected">
           </div>
-          <div class="col-sm-2" 
-               style="background-color:blue;letter-spacing: 2px;">
-              <pre> <span ng-repeat = "char in patterns[$index+1].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
+          <div class="col-sm-3" 
+               style="background-color:black;letter-spacing: 4px;">
+              <pre> <span ng-repeat = "char in patterns[$index+1].data track by $index" 
+                          ng-style="getStyle(char)" ><img ng-src="{{color}}"></span> <span ng-if = "char == '\n'">{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+1" 
                    value= "$index+1" 
@@ -38,9 +40,10 @@
                    ng-model="patterns[$index+1].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+1].selected">
           </div>
-          <div class="col-sm-2" 
-               style="background-color:blue;letter-spacing: 2px;">
-              <pre> <span ng-repeat = "char in patterns[$index+2].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
+          <div class="col-sm-3" 
+               style="background-color:black;letter-spacing: 4px;">
+              <pre>  <span ng-repeat = "char in patterns[$index+2].data track by $index" 
+                           ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre> 
             <input type="checkbox" 
                    name= "$index+2" 
                    value= "$index+2" 
@@ -48,9 +51,10 @@
                    ng-model="patterns[$index+2].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+2].selected">
           </div>
-         <div class="col-sm-2" 
-              style="background-color:blue;letter-spacing: 2px;">
-              <pre> <span ng-repeat = "char in patterns[$index+3].data track by $index" ng-style="getStyle(char)" >{{char}}</span></pre>
+         <div class="col-sm-3" 
+              style="background-color:black;letter-spacing: 4px;">
+              <pre><span ng-repeat = "char in patterns[$index+3].data track by $index" 
+                         ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+3" 
                    value= "$index+3" 
@@ -60,6 +64,27 @@
           </div>
       </div>
     </div>
+  <div class="container" style="margin:auto;">
+      <div class="col-sm-2">
+            <input type="radio" 
+                   ng-model= "colorScheme" 
+                   value= "Batman">
+            <p>Batman</p>        
+      </div>
+     <div class="col-sm-2">
+            <input type="radio" 
+                   ng-model= "colorScheme"
+                   value= "Flash">
+           <p>The Flash</p>   
+      </div>
+
+      <div class="col-sm-2">
+            <input type="radio" 
+                   ng-model= "colorScheme" 
+                   value= "GreenLantern">
+            <p>Green Lantern</p>        
+      </div>
+</div>
     </div>
     <div style="text-align:center;">
         <button ng-click="next()" 

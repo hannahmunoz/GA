@@ -3,12 +3,11 @@ var phonecatApp = angular.module('phonecatApp', []);
 var FilePath = "/Patterns";
 var patternLimit = 12;
 
-
 phonecatApp.controller('ServiceController', function ServiceController($scope, $http, $q, $timeout) {
   $scope.patterns = [];
   $scope.limit = 5;
   $scope.checked = 0;
-
+  $scope.colorScheme = "Batman"
   var init = function(){
     $q (function(success, failure){
       for (var i = 0; i < patternLimit; i++ ){
@@ -69,12 +68,43 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
   }
 
   $scope.getStyle = function (char){
-    if (char == 0){
-        return {'color':'grey'};
+    if ($scope.colorScheme == "Batman"){
+     if (char == 0){
+           $scope.color = "/CSS/black.png"
+        }
+        else if (char == 1){
+          $scope.color = "/CSS/yellow.png"
+        }
+        else{
+          $scope.color = char;
+        }
     }
-    else{
-      return {'color':'blue'};
+
+    else if ($scope.colorScheme == "Flash"){
+     if (char == 0){
+           $scope.color = "/CSS/red.png"
+        }
+        else if (char == 1){
+          $scope.color = "/CSS/yellow.png"
+        }
+        else{
+          $scope.color = char;
+        }
     }
+
+    else if ($scope.colorScheme == "GreenLantern"){
+       if (char == 0){
+             $scope.color = "/CSS/green.png"
+          }
+          else if (char == 1){
+            $scope.color = "/CSS/white.png"
+          }
+          else{
+            $scope.color = char;
+          }
+    }
+
+
   }
 
   $scope.finished = function(){
