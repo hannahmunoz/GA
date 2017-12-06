@@ -17,9 +17,9 @@
     <div class="container" style="margin:auto;">
       <div class="row" 
            ng-repeat="item in patterns" 
-           ng-if = "$index % 4 == 0">
-          <div class="col-sm-5" 
-               style="background-color:black;letter-spacing: 4px;">
+           ng-if = "$index % 3 == 0">
+          <div class="col-sm-4" 
+               style="background-color:black;">
               <pre> <span ng-repeat = "char in patterns[$index].data track by $index" 
                           ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
             <input type="checkbox" 
@@ -29,7 +29,7 @@
                    ng-model="patterns[$index].selected" 
                    ng-disabled= "checked==limit && !patterns[$index].selected">
           </div>
-          <div class="col-sm-5" 
+          <div class="col-sm-4" 
                style="background-color:black;letter-spacing: 4px;">
               <pre> <span ng-repeat = "char in patterns[$index+1].data track by $index" 
                           ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
@@ -40,7 +40,7 @@
                    ng-model="patterns[$index+1].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+1].selected">
           </div>
-          <div class="col-sm-5" 
+          <div class="col-sm-4" 
                style="background-color:black;letter-spacing: 4px;">
               <pre>  <span ng-repeat = "char in patterns[$index+2].data track by $index" 
                            ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre> 
@@ -51,20 +51,20 @@
                    ng-model="patterns[$index+2].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+2].selected">
           </div>
-         <div class="col-sm-5" 
+<!--          <div class="col-sm-4" 
               style="background-color:black;letter-spacing: 4px;">
               <pre><span ng-repeat = "char in patterns[$index+3].data track by $index" 
-                         ng-style="getStyle(char)" ><img ng-src="{{color}}"><span ng-if = "char == '\n'">{{char}}</span></pre>
+                         ng-style="getStyle(char)"><img ng-src="{{color}}"><span ng-if = "char == '\n'" style="font-size: 0px;">{{char}}</span></pre>
             <input type="checkbox" 
                    name= "$index+3" 
                    value= "$index+3" 
                    ng-change="checkChanged($index+3)" 
                    ng-model="patterns[$index+3].selected" 
                    ng-disabled= "checked==limit && !patterns[$index+3].selected">
-          </div>
+          </div> -->
       </div>
     </div>
-  <div class="container" style="margin:auto;">
+<!--   <div class="container" style="margin:auto;">
       <div class="col-sm-2">
             <input type="radio" 
                    ng-model= "colorScheme" 
@@ -83,8 +83,8 @@
                    ng-model= "colorScheme" 
                    value= "GreenLantern">
             <p>Green Lantern</p>        
-      </div>
-</div>
+		</div>
+</div> -->
     </div>
     <div style="text-align:center;">
         <button ng-click="next()">

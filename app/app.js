@@ -73,10 +73,10 @@ phonecatApp.controller('ServiceController', function ServiceController($scope, $
            $scope.color = "/CSS/black.png"
         }
         else if (char == 1){
-          $scope.color = "/CSS/yellow.png"
+          $scope.color = "/CSS/red.png"
         }
         else if (char == 2){
-          $scope.color = "/CSS/red.png"
+          $scope.color = "/CSS/yellow.png"
         }
         else if (char == 3){
           $scope.color = "/CSS/green.png"
