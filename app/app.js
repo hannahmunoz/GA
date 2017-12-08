@@ -1,7 +1,7 @@
 var phonecatApp = angular.module('phonecatApp', []);
 
 var FilePath = "/Patterns";
-var patternLimit = 12;
+var patternLimit = 9;
 
 phonecatApp.controller('ServiceController', function ServiceController($scope, $http, $q, $timeout) {
   $scope.patterns = [];
